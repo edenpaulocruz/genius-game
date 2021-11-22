@@ -9,7 +9,16 @@
     document.querySelector('[data-js="blue-button"]'),
     document.querySelector('[data-js="yellow-button"]')
   ]
-  
+
+  let order = []
+  let clickedOrder = []
+  let score = 0
+
+  const resetGame = () => {
+    score = 0
+    order = []
+  }  
+
   function lightColor(element) {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
@@ -23,10 +32,6 @@
     })
   }
 
-  let order = []
-  let clickedOrder = []
-  let score = 0
-  
   async function shuffleOrder() {
     let colorOrder = Math.floor(Math.random() * 4)
     order.push(colorOrder)
@@ -37,13 +42,23 @@
     }
   }
 
-  const resetGame = () => {
-    score = 0
-    order = []
-  }
-
   const playGame = () => {
     resetGame()
+    shuffleOrder()
+  }
+
+  const gameOver = () => {
+    if (order.length === 0 && clickedOrder.length > 0) {
+      console.log('Clique em START para começar um novo jogo!')
+    } else {
+      console.log('Você errou!')
+    }
+    resetGame()
+  }
+
+  const nextLevel = () => {
+    score++
+    console.log(`Você acertou! Sua pontuação é ${score}!`)
     shuffleOrder()
   }
 
@@ -58,17 +73,7 @@
       return nextLevel()
     }
   }
-
-  const nextLevel = () => {
-    score++
-    console.log(`Você acertou! Sua pontuação é ${score}!`)
-  }
-
-  const gameOver = () => {
-    resetGame()
-    console.log('Você errou!')
-  }
-  
+ 
   geniusButtons.forEach((button, index) => button.onclick = () => {
     clickedOrder.push(index)
     lightColor(button)
