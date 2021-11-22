@@ -1,0 +1,58 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.body {
+  background-color: #e5fff6;
+}
+
+.main {
+  align-items: center;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  width: 100vw;
+}
+
+.genius {
+  background-color: #000;
+  border: 4px solid #fff;
+  border-radius: 100%;
+  display: grid;
+  grid-gap: 2rem;
+  grid-template-areas: 'green-area red-area'
+                       'yellow-area blue-area';
+  height: 50rem;
+  padding: 2rem;
+  width: 50rem;
+}
+
+.green {
+  background-color: green;
+  border-top-left-radius: 100%;
+  grid-area: green-area;
+}
+
+.red {
+  background-color: red;
+  border-top-right-radius: 100%;
+  grid-area: red-area;
+}
+
+.blue {
+  background-color: blue;
+  border-bottom-right-radius: 100%;
+  grid-area: blue-area;
+}
+
+.yellow {
+  background-color: yellow;
+  border-bottom-left-radius: 100%;
+  grid-area: yellow-area;
+}
+
+.selected {
+  opacity: 0.8;
+}
