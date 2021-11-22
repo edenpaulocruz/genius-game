@@ -7,17 +7,18 @@
 
 .body {
   background-color: #e5fff6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
 }
 
 .header {
-  align-items: center;
-  display: flex;
-  justify-content: center;
-  height: 100vh;
-  left: 0;
-  position: absolute;
-  top: 0;
-  width: 100vw;
+  align-self: center;
+  justify-self: center;
+  height: 15rem;
+  position: absolute; */
+  width: 15rem;
   z-index: 999;
 }
 
@@ -117,6 +118,7 @@
 }
 
 .green, .red, .blue, .yellow {
+  cursor: pointer;
   opacity: .4;
 }
 
