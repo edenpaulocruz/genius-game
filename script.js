@@ -2,6 +2,7 @@
   'use strict'
 
   const startButton = document.querySelector('[data-js="start-button"]')
+  let scoreNumber = document.querySelector('[data-js="score-number"]')
   
   const geniusButtons = [
     document.querySelector('[data-js="green-button"]'),
@@ -58,7 +59,7 @@
 
   const nextLevel = () => {
     score++
-    console.log(`Você acertou! Sua pontuação é ${score}!`)
+    renderScore()
     shuffleOrder()
   }
 
@@ -73,6 +74,10 @@
       return nextLevel()
     }
   }
+
+  function renderScore() {
+    document.querySelector('.score-number').textContent = score
+  }
  
   geniusButtons.forEach((button, index) => button.onclick = () => {
     clickedOrder.push(index)
@@ -82,6 +87,8 @@
     }, 500)
     console.log(clickedOrder)
   })
+
+  renderScore()
 
   startButton.addEventListener('click', () => playGame())
 
