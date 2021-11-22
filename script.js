@@ -23,18 +23,23 @@
     })
   }
 
-  geniusButtons.forEach(button => button.onclick = () => lightColor(button))
-
   let order = []
-
+  let clickedOrder = []
+  
   async function shuffleOrder() {
     let colorOrder = Math.floor(Math.random() * 4)
     order.push(colorOrder)
     console.log(order)
-  
+    
     for (let count in order) {
       await lightColor(geniusButtons[order[count]])
     }
   }
+  
+  geniusButtons.forEach((button, index) => button.onclick = () => {
+    lightColor(button)
+    clickedOrder.push(index)
+    console.log(clickedOrder)
+  })
 
 })();
