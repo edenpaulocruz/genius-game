@@ -1,7 +1,7 @@
 (function () {
   'use strict'
 
-  // const startButton = document.querySelector('[data-js="start-button"]')
+  const startButton = document.querySelector('[data-js="start-button"]')
   
   const geniusButtons = [
     document.querySelector('[data-js="green-button"]'),
@@ -25,6 +25,7 @@
 
   let order = []
   let clickedOrder = []
+  let score = 0
   
   async function shuffleOrder() {
     let colorOrder = Math.floor(Math.random() * 4)
@@ -35,6 +36,11 @@
       await lightColor(geniusButtons[order[count]])
     }
   }
+
+  const playGame = () => {
+    score = 0
+    shuffleOrder()
+  }
   
   geniusButtons.forEach((button, index) => button.onclick = () => {
     lightColor(button)
@@ -42,4 +48,6 @@
     console.log(clickedOrder)
   })
 
-})();
+  startButton.addEventListener('click', () => playGame())
+
+})()
