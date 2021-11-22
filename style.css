@@ -131,16 +131,20 @@
 }
 
 .aside {
-  background-color: #000;
+  background-color: #002e00;
   color: #7e7e7e;
+  display: flex;
+  flex-direction: column;
   height: 100vh;
+  justify-content: space-between;
+  padding-bottom: 1.5rem;
   width: 30vw;
 }
 
 .text {
   font-size: 1.25rem;
   line-height: 1.5;
-  margin-top: 7rem;
+  margin-top: 6rem;
   padding: 0 2rem;
 }
 
@@ -151,4 +155,28 @@
 
 .link:hover {
   color: greenyellow;
+}
+
+.score {
+  bottom: 1rem;
+  color: #7e7e7e;
+  margin: 0 auto;
+  padding: .5rem 1rem;
+  text-align: center;
+  width: fit-content;
+}
+
+.score-title {
+  color: greenyellow;
+  font-size: 2rem;
+  margin-top: 1rem;
+  text-transform: uppercase;
+}
+
+.score-number {
+  font-size: 4.5rem;
+}
+
+.score-text {
+  font-size: 1.5rem;
 }
