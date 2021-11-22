@@ -130,6 +130,45 @@
   opacity: 1;
 }
 
+.modal {
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.9);
+  display: none;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 70vw;
+  z-index: 9999;
+}
+
+.modal-message {
+  color: #fff;
+  font-size: 2rem;
+  line-height: 2;
+  text-align: center;
+  width: 60%;
+}
+
+.close-modal {
+  background-color: transparent;
+  border: .125rem #fff solid;
+  color: #fff;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-top: 6rem;
+  padding: .75rem 2rem;
+  letter-spacing: .25rem;
+  text-transform: uppercase;
+}
+
+.close-modal:hover {
+  background-color: #fff;
+  color: red;
+}
+
 .aside {
   background-color: #002e00;
   color: #7e7e7e;

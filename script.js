@@ -2,7 +2,6 @@
   'use strict'
 
   const startButton = document.querySelector('[data-js="start-button"]')
-  let scoreNumber = document.querySelector('[data-js="score-number"]')
   
   const geniusButtons = [
     document.querySelector('[data-js="green-button"]'),
@@ -18,6 +17,7 @@
   const resetGame = () => {
     score = 0
     order = []
+    renderScore()
   }  
 
   function lightColor(element) {
@@ -48,12 +48,24 @@
     shuffleOrder()
   }
 
-  const gameOver = () => {
-    if (order.length === 0 && clickedOrder.length > 0) {
-      console.log('Clique em START para começar um novo jogo!')
+  const toggleModal = () => {
+    if (document.querySelector('[data-js="modal"').style.display == 'none') {
+      document.querySelector('[data-js="modal"').style.display = 'flex'
     } else {
-      console.log('Você errou!')
+      document.querySelector('[data-js="modal-message"]').textContent = ''
+      document.querySelector('[data-js="modal"').style.display = 'none'
     }
+  }
+
+  const renderMessage = text => {
+    document.querySelector('[data-js="modal-message"]').textContent = text
+    toggleModal()
+  }
+  
+  document.querySelector('[data-js="close-modal"]').addEventListener('click', toggleModal)
+
+  const gameOver = () => {
+    renderMessage(`Você acertau ${score} rodada(s)! Clique em START e tente outra vez!`)
     resetGame()
   }
 
@@ -85,7 +97,6 @@
     setTimeout(() => {
       checkOrder()
     }, 500)
-    console.log(clickedOrder)
   })
 
   renderScore()
