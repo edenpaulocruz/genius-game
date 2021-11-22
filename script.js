@@ -10,13 +10,31 @@
     document.querySelector('[data-js="yellow-button"]')
   ]
   
-  const lightColor = element => {
-    element.classList.add('selected')
-
-    setTimeout(() => {
-      element.classList.remove('selected')
-    }, 350)
+  function lightColor(element) {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        element.classList.add('selected')
+    
+        setTimeout(() => {
+          element.classList.remove('selected')
+          resolve()
+        }, 200)
+      }, 350)
+    })
   }
 
   geniusButtons.forEach(button => button.onclick = () => lightColor(button))
+
+  let order = []
+
+  async function shuffleOrder() {
+    let colorOrder = Math.floor(Math.random() * 4)
+    order.push(colorOrder)
+    console.log(order)
+  
+    for (let count in order) {
+      await lightColor(geniusButtons[order[count]])
+    }
+  }
+
 })();
